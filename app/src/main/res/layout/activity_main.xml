@@ -22,12 +22,17 @@
         android:id="@+id/btn_ViewMap"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
         android:onClick="onClickView"
         android:text="@string/start"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/black"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="@+id/map"
         app:layout_constraintStart_toStartOf="@+id/map"
-        app:rippleColor="@color/ripple_color" />
+        app:rippleColor="@color/ripple_color"
+        tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

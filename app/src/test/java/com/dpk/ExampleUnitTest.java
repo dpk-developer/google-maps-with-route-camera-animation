@@ -1,4 +1,4 @@
-package com.canopus;
+package com.dpk;
 
 import org.junit.Test;
 

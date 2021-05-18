@@ -1,4 +1,4 @@
-package com.canopus;
+package com.dpk;
 
 import android.content.Context;
 

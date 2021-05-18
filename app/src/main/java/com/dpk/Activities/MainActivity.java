@@ -1,4 +1,4 @@
-package com.canopus.Activities;
+package com.dpk.Activities;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -9,8 +9,8 @@ import android.view.View;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.canopus.MapDataParser.DataParser;
-import com.canopus.R;
+import com.dpk.MapDataParser.DataParser;
+import com.dpk.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -66,10 +66,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void findViewById() {
         mStart = (MaterialButton) findViewById(R.id.btn_ViewMap);
-        mStart.setOnClickListener(this::onClick);
+        mStart.setOnClickListener(this);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
     }
 
@@ -101,6 +102,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        // for map style (black)
+
+        /*googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.style)); */
+
         mMap.addMarker(mUserLocation);
         mMap.addMarker(mUserDestination);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mUserLocation.getPosition(), 12));
@@ -113,7 +121,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         String mMode = "mode=driving";
         String mParameters = mStrOrigin + "&" + mStrDestination + "&" + mMode;
         String mOutput = "json";
-        String mUrl = "https://maps.googleapis.com/maps/api/directions/" + mOutput + "?" + mParameters + "&key=" + "AIzaSyAp1ZKZevC_88ONPb4ggUG9RnKyEtP7TQI";
+        String mUrl = "https://maps.googleapis.com/maps/api/directions/" + mOutput + "?" + mParameters + "&key=" + "YOUR_API_KEY";
 
         return mUrl;
     }

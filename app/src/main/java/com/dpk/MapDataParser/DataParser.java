@@ -1,4 +1,4 @@
-package com.canopus.MapDataParser;
+package com.dpk.MapDataParser;
 
 import com.google.android.gms.maps.model.LatLng;
 
